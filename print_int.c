@@ -2,8 +2,10 @@
 
 int print_int(va_list args)
 {
-    int n = va_arg(args, int);
+    long n;
     int count = 0;
+
+    n = va_arg(args, int);  /* cast en long */
 
     if (n < 0)
     {
@@ -11,10 +13,7 @@ int print_int(va_list args)
         n = -n;
     }
 
-    if (n / 10)
-        count += print_number(n / 10);
-
-    count += _putchar((n % 10) + '0');
+    count += print_number(n);
 
     return (count);
 }
