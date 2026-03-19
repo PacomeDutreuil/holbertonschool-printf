@@ -18,8 +18,8 @@ int _printf(const char *format, ...)
 
             if (format[i] == '\0')
             {
-                count += _putchar('%');
-                break;
+                va_end(args);
+                return (-1);
             }
 
             if (format[i] == 'c')
